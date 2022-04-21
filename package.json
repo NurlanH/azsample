@@ -1,6 +1,6 @@
 {
   "name": "azsample",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package for samle data username phone etc.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
