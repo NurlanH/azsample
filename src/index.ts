@@ -8,16 +8,16 @@ export function username() {
   const getFirstname = service.getFirstname();
   const getLastname = service.getLastname();
   const getFullname = getFirstname + getLastname;
-  const convertToEnChar = service.convertAzToEnChar(getFullname);
+  const convertToEnChar = service.convertAzToEnChar(getFullname.toLowerCase());
 
-  return service.replaceSymbolRandom(convertToEnChar).toLowerCase();
+  return service.replaceSymbolRandom(convertToEnChar);
 }
 
 export function email() {
   const getFirstname = service.getFirstname();
   const getLastname = service.getLastname();
   const getFullname = getFirstname + getLastname;
-  const convertToEnChar = service.convertAzToEnChar(getFullname);
+  const convertToEnChar = service.convertAzToEnChar(getFullname.toLowerCase());
   const emailName = service.replaceSymbolRandom(convertToEnChar);
   return service.generateEmail(emailName);
 }
