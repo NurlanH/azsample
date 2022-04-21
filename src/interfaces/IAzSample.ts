@@ -1,6 +1,6 @@
 export interface IAzSample {
   username(): string;
-  email(): string
+  email(): string;
   phone(): string;
   firstname(): string;
   lastname(): string;

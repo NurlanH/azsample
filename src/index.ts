@@ -1,48 +1,36 @@
 import { firstNameList, surnameList, phoneProviders } from './data';
-import { IAzSample } from './interfaces';
 import { Services } from './services';
 import { genNum, genNumPhone } from './utils';
 
-class AzSample implements IAzSample {
-    /**
-     *
-     */
-    constructor(private readonly service:Services) {
+const service: Services = new Services();
 
-    }
+export function username() {
+  const getFirstname = service.getFirstname();
+  const getLastname = service.getLastname();
+  const getFullname = getFirstname + getLastname;
+  const convertToEnChar = service.convertAzToEnChar(getFullname);
 
-  public readonly username = () => {
-    const getFirstname = this.service.getFirstname();
-    const getLastname = this.service.getLastname();
-    const getFullname = getFirstname + getLastname;
-    const convertToEnChar = this.service.convertAzToEnChar(getFullname);
-
-    return (this.service.replaceSymbolRandom(convertToEnChar)).toLowerCase();
-  };
-
-  public readonly email = () => {
-    const getFirstname = this.service.getFirstname();
-    const getLastname = this.service.getLastname();
-    const getFullname = getFirstname + getLastname;
-    const convertToEnChar = this.service.convertAzToEnChar(getFullname);
-    const emailName = this.service.replaceSymbolRandom(convertToEnChar);
-    return this.service.generateEmail(emailName);
-  };
-
-  public readonly phone = () => {
-    const phone = '+994' + phoneProviders[genNum(phoneProviders.length-1)] + genNumPhone();
-    return phone;
-  };
-
-  public readonly firstname = () => {
-    return firstNameList[genNum(firstNameList.length - 1)];
-  };
-
-  public readonly lastname = () => {
-    return surnameList[genNum(surnameList.length - 1)];
-  };
-
-
+  return service.replaceSymbolRandom(convertToEnChar).toLowerCase();
 }
 
-export default new AzSample(new Services());
+export function email() {
+  const getFirstname = service.getFirstname();
+  const getLastname = service.getLastname();
+  const getFullname = getFirstname + getLastname;
+  const convertToEnChar = service.convertAzToEnChar(getFullname);
+  const emailName = service.replaceSymbolRandom(convertToEnChar);
+  return service.generateEmail(emailName);
+}
+
+export function phone() {
+  const generatePhone = '+994' + phoneProviders[genNum(phoneProviders.length - 1)] + genNumPhone();
+  return generatePhone;
+}
+
+export function firstname() {
+  return firstNameList[genNum(firstNameList.length - 1)];
+}
+
+export function lastname() {
+  return surnameList[genNum(surnameList.length - 1)];
+}
