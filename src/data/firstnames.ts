@@ -69,8 +69,6 @@ export const firstNameList = [
   'Ramazan',
   'Ramiz',
   'Rəşad',
-  'Rashad',
-  'Means',
   'Rasim',
   'Rizvan',
   'Rüstəm',

@@ -1,4 +1,4 @@
-import { firstNameList, surnameList, emailTypes, symbolList, AzToEng } from './data';
+import { firstNameList, surnameList, emailTypes, symbolList, AzToEng, phoneProviders } from './data';
 import { IAzSample } from './interfaces';
 import { genNum, genNumPhone } from './utils';
 
@@ -9,7 +9,7 @@ class AzSample implements IAzSample {
     const getFullname = getFirstname + getLastname;
     const convertToEnChar = this.convertAzToEnChar(getFullname);
 
-    return this.replaceSymbolRandom(convertToEnChar);
+    return (this.replaceSymbolRandom(convertToEnChar)).toLowerCase();
   };
 
   public readonly email = () => {
@@ -22,7 +22,7 @@ class AzSample implements IAzSample {
   };
 
   public readonly phone = () => {
-    const phone = '+994' + genNumPhone();
+    const phone = '+994' + phoneProviders[genNum(phoneProviders.length-1)] + genNumPhone();
     return phone;
   };
 
@@ -39,7 +39,7 @@ class AzSample implements IAzSample {
   };
 
   private readonly getLastname = () => {
-    return surnameList[genNum(surnameList.length - 1)];
+    return (surnameList[genNum(surnameList.length - 1)]).toLowerCase();
   };
 
   private readonly convertAzToEnChar = (word: string) => {
@@ -47,7 +47,7 @@ class AzSample implements IAzSample {
   };
 
   private readonly replaceSymbolRandom = (word: string) => {
-    return word.replace(word[genNum(word.length - 1)], symbolList[genNum(symbolList.length - 1)]);
+    return word.replace(word[genNum(word.length - 3)+1], symbolList[genNum(symbolList.length - 1)]);
   };
 
   private readonly generateEmail = (emailName: string) => {
