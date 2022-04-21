@@ -3,13 +3,12 @@
 <h1 align="center">Hi 👋, I'm Nurlan</h1>
 <h3 align="center">A backend developer from Azerbaijan</h3>
 
+
 - 🔭 I’m currently working on [Baku Creative Projects](https://bcp.az/)
 
-- 🌱 I’m currently improve **Nestjs**
-
-- 💬 Ask me about **Nestjs nodejs redis socketio javascript**
-
 - 📫 How to reach me **nurlanah@code.edu.az**
+
+- 🌱 This is my first npm package so waiting your awesome feedbacks
 
 <h3 align="left">Documentation</h3>
 <p align="left">
