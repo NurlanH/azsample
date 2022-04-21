@@ -1,24 +1,32 @@
-import { firstNameList, surnameList, emailTypes, symbolList, AzToEng, phoneProviders } from './data';
+import { firstNameList, surnameList, phoneProviders } from './data';
 import { IAzSample } from './interfaces';
+import { Services } from './services';
 import { genNum, genNumPhone } from './utils';
 
 class AzSample implements IAzSample {
-  public readonly username = () => {
-    const getFirstname = this.getFirstname();
-    const getLastname = this.getLastname();
-    const getFullname = getFirstname + getLastname;
-    const convertToEnChar = this.convertAzToEnChar(getFullname);
+    /**
+     *
+     */
+    constructor(private readonly service:Services) {
 
-    return (this.replaceSymbolRandom(convertToEnChar)).toLowerCase();
+    }
+
+  public readonly username = () => {
+    const getFirstname = this.service.getFirstname();
+    const getLastname = this.service.getLastname();
+    const getFullname = getFirstname + getLastname;
+    const convertToEnChar = this.service.convertAzToEnChar(getFullname);
+
+    return (this.service.replaceSymbolRandom(convertToEnChar)).toLowerCase();
   };
 
   public readonly email = () => {
-    const getFirstname = this.getFirstname();
-    const getLastname = this.getLastname();
+    const getFirstname = this.service.getFirstname();
+    const getLastname = this.service.getLastname();
     const getFullname = getFirstname + getLastname;
-    const convertToEnChar = this.convertAzToEnChar(getFullname);
-    const emailName = this.replaceSymbolRandom(convertToEnChar);
-    return this.generateEmail(emailName);
+    const convertToEnChar = this.service.convertAzToEnChar(getFullname);
+    const emailName = this.service.replaceSymbolRandom(convertToEnChar);
+    return this.service.generateEmail(emailName);
   };
 
   public readonly phone = () => {
@@ -34,25 +42,7 @@ class AzSample implements IAzSample {
     return surnameList[genNum(surnameList.length - 1)];
   };
 
-  private readonly getFirstname = () => {
-    return firstNameList[genNum(firstNameList.length - 1)];
-  };
 
-  private readonly getLastname = () => {
-    return (surnameList[genNum(surnameList.length - 1)]).toLowerCase();
-  };
-
-  private readonly convertAzToEnChar = (word: string) => {
-    return AzToEng(word);
-  };
-
-  private readonly replaceSymbolRandom = (word: string) => {
-    return word.replace(word[genNum(word.length - 3)+1], symbolList[genNum(symbolList.length - 1)]);
-  };
-
-  private readonly generateEmail = (emailName: string) => {
-    return emailName + '@' + emailTypes[genNum(emailTypes.length - 1)];
-  };
 }
 
-export default new AzSample();
+export default new AzSample(new Services());
