@@ -25,6 +25,15 @@ Usage:
     1. import AzSample from 'azsample';
     ==========================================
     2. const AzSample = require('azsample');
+    ==========================================
+    ==========================================
+
+    1. AzSample.getInfo('female || male');
+    2. AzSample.firstname('female || male');
+    3. AzSample.lastname('female || male');
+    4. AzSample.email('female || male');
+    5. AzSample.username('female || male');
+    6. AzSample.phone( );
  
 ```
 

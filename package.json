@@ -1,6 +1,5 @@
 {
   "name": "azsample",
-  "type": "module",
   "version": "1.1.0",
   "description": "This package for samle data username phone etc.",
   "main": "lib/index.js",
