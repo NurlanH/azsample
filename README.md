@@ -10,18 +10,23 @@
 
 - 🌱 This is my first npm package so waiting your awesome feedbacks
 
-<h3 align="left">Documentation</h3>
-<p align="left">
-- This is simple to use
-- Lightweight
-- Fast
+## Documentation
 
-- Just npm i azsample
-- import AzSample from 'azsample'
-- If you want to generate email type =>>> AzSample.email() || for firstname  =>>> AzSample.firstname() and etc.
-- Good luck
+Install `azsample` using the [npm](https://www.npmjs.com/package/azsample) package manager:
 
-</p>
+```sh
+$ npm i azsample
+```
+ 
+```sh
+Usage:
+
+# You have 2 way for import azsample
+    1. import AzSample from 'azsample';
+    ==========================================
+    2. const AzSample = require('azsample');
+ 
+```
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">

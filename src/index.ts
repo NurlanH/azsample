@@ -1,21 +1,20 @@
-import { firstNameList, surnameList, phoneProviders } from './data';
+import { genderTypes } from './enums';
 import { Services } from './services';
-import { genNum, genNumPhone } from './utils';
 
 const service: Services = new Services();
 
-export function username() {
-  const getFirstname = service.getFirstname();
-  const getLastname = service.getLastname();
+export function username(gender: genderTypes) {
+  const getFirstname = service.firstname(gender);
+  const getLastname = service.lastname(gender);
   const getFullname = getFirstname + getLastname;
   const convertToEnChar = service.convertAzToEnChar(getFullname.toLowerCase());
 
   return service.replaceSymbolRandom(convertToEnChar);
 }
 
-export function email() {
-  const getFirstname = service.getFirstname();
-  const getLastname = service.getLastname();
+export function email(gender: genderTypes) {
+  const getFirstname = service.firstname(gender);
+  const getLastname = service.lastname(gender);
   const getFullname = getFirstname + getLastname;
   const convertToEnChar = service.convertAzToEnChar(getFullname.toLowerCase());
   const emailName = service.replaceSymbolRandom(convertToEnChar);
@@ -23,14 +22,17 @@ export function email() {
 }
 
 export function phone() {
-  const generatePhone = '+994' + phoneProviders[genNum(phoneProviders.length - 1)] + genNumPhone();
-  return generatePhone;
+  return service.phone();
 }
 
-export function firstname() {
-  return firstNameList[genNum(firstNameList.length - 1)];
+export function firstname(gender: genderTypes) {
+  return service.firstname(gender);
 }
 
-export function lastname() {
-  return surnameList[genNum(surnameList.length - 1)];
+export function lastname(gender: genderTypes) {
+  return service.lastname(gender);
+}
+
+export function getInfo(gender: genderTypes) {
+  return service.getInfo(gender);
 }
