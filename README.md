@@ -3,9 +3,6 @@
 <h1 align="center">Hi 👋, I'm Nurlan</h1>
 <h3 align="center">A backend developer from Azerbaijan</h3>
 
-
-- 🔭 I’m currently working on [Baku Creative Projects](https://bcp.az/)
-
 - 📫 How to reach me **nurlanah@code.edu.az**
 
 - 🌱 This is my first npm package so waiting your awesome feedbacks
